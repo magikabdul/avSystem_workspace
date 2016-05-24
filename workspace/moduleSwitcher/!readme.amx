@@ -1,0 +1,34 @@
+2016-05-24
+
+New modules for audio and video switchers
+
+videoSwitcher
+	- even if particular input/output deosn't exists array have to be filled ex. {0} - (swVideo_outputProjector)
+INTEGER swVideo_noOfTxDx = 0											- number of DxLink Transmitters (800x <-> 3330x)
+INTEGER swVideo_noOfRxDx = 1											- number of DxLink Receivers (700x <-> 3320x)
+INTEGER swVideo_inputVga[] = {1}									- phisical inputs for vga signals
+INTEGER swVideo_inputHdmi[] = {4}									- phisical inputs for hdmi signals
+INTEGER swVideo_inputVideoConference[] = {2,3}		- phisical inputs for videconference signals
+INTEGER swVideo_outputMonitor[] = {1,2}						- phisical outputs to monitors
+INTEGER swVideo_outputProjector[] = {0}						- phisical outputs to projector
+INTEGER swVideo_outputContent[] = {3}							- phisical outputs to videoconference content
+
+DEFINE_MODULE 'switcherDvxVideo' OrlenVideoSw01(dvDvx,vdvVideoSwitcher,
+																								swVideo_noOfTxDx, swVideo_noOfRxDx,
+																								swVideo_inputVga, swVideo_inputHdmi, swVideo_inputVideoConference,
+																								swVideo_outputMonitor, swVideo_outputProjector, swVideo_outputContent)
+
+
+audioSwitcher
+	- even if particular input/output deosn't exists array have to be filled
+//audioSwitcher data (even if particular input/output deosn't exists output number have to a value '0')
+INTEGER swAudio_inputVga[] = {1,2}								- phisical inputs for vga signals
+INTEGER swAudio_inputHdmi[] = {4,5}								- phisical inputs for hdmi signals
+INTEGER swAudio_inputVideoConference[] = {2}			- phisical inputs for videconference signals
+INTEGER swAudio_outputRoom[] = {1}								- phisical outputs to room speakers
+INTEGER swAudio_outputVideoConference[] = {3}			- phisical outputs to videoconference content
+
+DEFINE_MODULE 'switcherDvxAudio' OrlenAudioSw01(dvDvx,vdvVideoSwitcher,
+																								swAudio_inputVga,swAudio_inputHdmi,swAudio_inputVideoConference,
+																								swAudio_outputRoom,swAudio_outputVideoConference)
+																								

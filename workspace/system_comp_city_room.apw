@@ -109,23 +109,23 @@
        <!ELEMENT Notes (#PCDATA)>
 ]>
 
-<Workspace CurrentVersion="4.0"><Identifier>Orlen</Identifier>
+<Workspace CurrentVersion="4.0"><Identifier>Company</Identifier>
 <CreateVersion>3.3</CreateVersion>
 <PJS_File></PJS_File>
 <PJS_ConvertDate></PJS_ConvertDate>
 <PJS_CreateDate></PJS_CreateDate>
 <Comments></Comments>
-<Project><Identifier>Plock</Identifier>
+<Project><Identifier>City</Identifier>
 <Designer></Designer>
 <DealerID></DealerID>
 <SalesOrder></SalesOrder>
 <PurchaseOrder></PurchaseOrder>
 <Comments></Comments>
-<System IsActive="true" Platform="Netlinx" Transport="TCPIP" TransportEx="TCPIP"><Identifier>DVX-x2xx</Identifier>
+<System IsActive="true" Platform="Netlinx" Transport="TCPIP" TransportEx="TCPIP"><Identifier>Room</Identifier>
 <SysID>0</SysID>
 <TransTCPIP>10.20.26.10:1319:1:Orlen_sala436:administrator:h24Df84dce</TransTCPIP>
 <TransSerial>COM1,38400,8,None,1,None</TransSerial>
-<TransTCPIPEx>192.168.1.47|1319|1|DVX-3250HD-SP [AMXM9EAFD9]|YWRtaW5pc3RyYXRvcg|cGFzc3dvcmQ</TransTCPIPEx>
+<TransTCPIPEx>192.168.5.132|1319|1|4200 [AMXM9C0C69]|YWRtaW5pc3RyYXRvcg|cGFzc3dvcmQ</TransTCPIPEx>
 <TransSerialEx>COM1|38400|8|None|1|None|YWRtaW5pc3RyYXRvcg|aDI0RGY4NGRjZQ</TransSerialEx>
 <TransUSBEx>|||||</TransUSBEx>
 <TransVNMEx>10.0.0.1|1|&lt;Default&gt;</TransVNMEx>
@@ -136,52 +136,32 @@
 <UserName></UserName>
 <Password></Password>
 <Comments></Comments>
-<File CompileType="Netlinx" Type="Include"><Identifier>amx_string_control</Identifier>
-<FilePathName>..\..\..\..\..\## my includes ##\amx_string_control.axi</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Include"><Identifier>xml_string_control</Identifier>
-<FilePathName>..\..\..\..\..\## my includes ##\xml_string_control.axi</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>OpenWeather_Comm_nl1_0_0</Identifier>
-<FilePathName>..\..\..\..\..\## my modules ##\netlinx\OpenWeather_Comm_nl1_0_0.axs</FilePathName>
+<File CompileType="Netlinx" Type="Include"><Identifier>chapi</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\## my includes ##\chapi.axi</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Include"><Identifier>deviceDefinitions</Identifier>
-<FilePathName>includes\deviceDefinitions.axi</FilePathName>
+<FilePathName>include\deviceDefinitions.axi</FilePathName>
 <Comments></Comments>
 </File>
-<File CompileType="Netlinx" Type="MasterSrc"><Identifier>mainlineOrlen</Identifier>
-<FilePathName>mainlineOrlen.axs</FilePathName>
+<File CompileType="Netlinx" Type="MasterSrc"><Identifier>mainline_comp_city_room</Identifier>
+<FilePathName>mainline_comp_city_room.axs</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="DUET"><Identifier>RmsNetLinxAdapter_dr4_0_0</Identifier>
-<FilePathName>modulesDuet\RmsNetLinxAdapter_dr4_0_0.jar</FilePathName>
+<FilePathName>moduleDuet\RmsNetLinxAdapter_dr4_0_0.jar</FilePathName>
 <Comments></Comments>
 </File>
-<File CompileType="Netlinx" Type="Module"><Identifier>ArduinoServer_Comm_nl1_0_0</Identifier>
-<FilePathName>modulesNetlinx\ArduinoServer_Comm_nl1_0_0.axs</FilePathName>
+<File CompileType="Netlinx" Type="Module"><Identifier>switcherDvxAudio</Identifier>
+<FilePathName>moduleSwitcher\switcherDvxAudio.axs</FilePathName>
 <Comments></Comments>
 </File>
-<File CompileType="Netlinx" Type="Module"><Identifier>comm_Polycom_Xml_nl1_0_0</Identifier>
-<FilePathName>modulesNetlinx\comm_Polycom_Xml_nl1_0_0.axs</FilePathName>
+<File CompileType="Netlinx" Type="Module"><Identifier>switcherDvxVideo</Identifier>
+<FilePathName>moduleSwitcher\switcherDvxVideo.axs</FilePathName>
 <Comments></Comments>
 </File>
-<File CompileType="Netlinx" Type="Module"><Identifier>uiOrlenRoomPanelAudio</Identifier>
-<FilePathName>modulesUi\uiOrlenRoomPanelAudio.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>uiOrlenRoomPanelCustomization</Identifier>
-<FilePathName>modulesUi\uiOrlenRoomPanelCustomization.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>commRmsOrlen</Identifier>
-<FilePathName>monitors\commRmsOrlen.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>RmsTouchPanelMonitor</Identifier>
-<FilePathName>monitors\RmsTouchPanelMonitor.axs</FilePathName>
+<File CompileType="Netlinx" Type="Module"><Identifier>commRms</Identifier>
+<FilePathName>monitors\commRms.axs</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Other"><Identifier>panelCustomization</Identifier>

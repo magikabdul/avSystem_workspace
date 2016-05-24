@@ -1,0 +1,11 @@
+2016-05-24
+
+In mainline has to be define in DEFINE_VARIBLE section:
+	- address IP of rms server ex. 192.168.1.100
+	- location name
+	
+//rms information for location registration
+CHAR rmsConfigIpAddress[] 		= '10.1.66.86'
+CHAR rmsConfigLocationName[] 	= 'Main Office'
+
+DEFINE_MODULE 'commRms' rmsComm01(vdvRms,rmsConfigIpAddress,rmsConfigLocationName)
