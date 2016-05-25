@@ -140,6 +140,10 @@
 <FilePathName>..\..\..\..\amx_folder\amx_works\## my includes ##\chapi.axi</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsTouchPanelMonitor</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsTouchPanelMonitor\RmsTouchPanelMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="Include"><Identifier>deviceDefinitions</Identifier>
 <FilePathName>include\deviceDefinitions.axi</FilePathName>
 <Comments></Comments>
