@@ -1,6 +1,6 @@
 PROGRAM_NAME='deviceDefinitions'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 05/24/2016  AT: 11:25:51        *)
+(*  FILE_LAST_MODIFIED_ON: 05/25/2016  AT: 13:03:28        *)
 (***********************************************************)
 
 DEFINE_DEVICE
@@ -47,9 +47,9 @@ dvDvx				 														=  5002: 1:0
 
 dvAmplifier  														=  5002: 1:0
 //------------------------------------- = ----------------------------------------------------dxlink Tx(800x) and Rx(700x)	use port 2 to aviod confilicts in RMS
-dvTransmitter														=  8001: 2:0
+dvTransmitter														=  8001: 0:0
 
-dvReceiver      												=  7001: 2:0
+dvReceiver      												=  7001: 0:0
 //------------------------------------- = ----------------------------------------------------virtualSwitchers(3300x)
 vdvVideoSwitcher												= 33001: 1:0
 vdvAudioSwitcher												= 33002: 1:0
@@ -69,6 +69,8 @@ vdvMonitorRight													= 33102: 1:0
 vdvProjectorNl													= 33111: 1:0
 //------------------------------------- = ----------------------------------------------------virtualNetlinxAvDevices(3320x - Rx, 3330x - Tx)
 vdvReceiver1														= 33201: 1:0
+
+vdvTransmitter													= 33301: 1:0
 //------------------------------------- = ----------------------------------------------------virtualDuetDevices
 vdvPolycom          										= 41001: 1:0
 

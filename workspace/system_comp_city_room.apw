@@ -140,6 +140,18 @@
 <FilePathName>..\..\..\..\amx_folder\amx_works\## my includes ##\chapi.axi</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Module"><Identifier>AMX_DxTx_Comm_nl2_0_0</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\netlinx\amx\dxLink\AMX_DxTx_Comm_nl2_0_0.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsDistanceTransportTxMonitor</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsDistanceTransportTxMonitor\RmsDistanceTransportTxMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsDvxSwitcherMonitor</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsDvxSwitcherMonitor\RmsDvxSwitcherMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="Module"><Identifier>RmsTouchPanelMonitor</Identifier>
 <FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsTouchPanelMonitor\RmsTouchPanelMonitor.axs</FilePathName>
 <Comments></Comments>

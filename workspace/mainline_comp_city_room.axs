@@ -1,7 +1,7 @@
 PROGRAM_NAME='mainline_comp_city_room'
 (***********************************************************)
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 05/24/2016  AT: 13:34:58        *)
+(*  FILE_LAST_MODIFIED_ON: 05/25/2016  AT: 13:38:25        *)
 (***********************************************************)
 (* System Type : NetLinx                                   *)
 (***********************************************************)
@@ -53,7 +53,9 @@ INTEGER swAudio_inputVideoConference[] = {2}
 INTEGER swAudio_outputRoom[] = {1}
 INTEGER swAudio_outputVideoConference[] = {3}
 
-//__DEVDEFINITIONS rmsPanel	//used for rmsMonitoring
+__DEVDEFINITIONS rmsPanel	//used for rmsMonitoring
+__DEVDEFINITIONS rmsDxTx
+
 (***********************************************************)
 (*                INCLUDE DEFINITIONS GO BELOW             *)
 (***********************************************************)
@@ -98,7 +100,7 @@ DEFINE_MODULE 'commRms' rmsComm01(vdvRms,rmsConfigIpAddress,rmsConfigLocationNam
 //----------------------------------------------------------------------------------------------------
 //																																											switerModules
 //----------------------------------------------------------------------------------------------------
-//DEFINE_MODULE 'AMX_DxRx_Comm_nl2_0_0' dxRx01(vdvReceiver1,dvReceiver1)
+DEFINE_MODULE 'AMX_DxTx_Comm_nl2_0_0' dxRx01(vdvTransmitter,dvTransmitter)
 //DEFINE_MODULE 'AMX_DxRx_Comm_nl2_0_0' dxRx02(vdvReceiver2,dvReceiver2)
 
 DEFINE_MODULE 'switcherDvxVideo' OrlenVideoSw01(dvDvx,vdvVideoSwitcher,
@@ -152,19 +154,13 @@ DEFINE_MUTUALLY_EXCLUSIVE
 (***********************************************************)
 DEFINE_START
 
-//----------------------------------------------------------------------------------------------------
-//  																																				 rmsNetlinxDeviceMonitors
-//----------------------------------------------------------------------------------------------------
-//#IF_DEFINED HAS_RMS
-//
-//	#IF_DEFINED HAS_KEYPAD
-//
-//	#END_IF
-//
-//	#IF_DEFINED HAS_PANEL
-//		rmsPanel.name = 'iPad mini'
-//		rmsPanel.type = 'TPC'
-//	#END_IF
+//rmsKeypad.name = ''
+
+rmsPanel.name = 'iPad'
+rmsPanel.type = 'TPC'
+
+rmsDxTx.name = 'MyTransmitter'
+
 //
 //	#IF_DEFINED HAS_PROJECTOR
 //		//rmsProjector[1].name = 'Projector'
@@ -207,118 +203,55 @@ DEFINE_START
 //		rmsSourceUsage[8].name = 'Source - HDMI4'
 //		rmsSourceUsage[8].description = 'Auxillary HDMI4 Input on Table'
 //	#END_IF
-////----------------------------------------------------------------------------------------------------
-////																																								 	 systemMonitoring
-////----------------------------------------------------------------------------------------------------
-//	//DEFINE_MODULE 'RmsSystemPowerMonitor' rmsSystemPower01(vdvRMS,dvMaster)
-//	//DEFINE_MODULE 'RmsDvxSwitcherMonitor' rmsDvxSwticher01(vdvRMS)
-////----------------------------------------------------------------------------------------------------
-////																																					  nativeDevicesMonitoring
-////----------------------------------------------------------------------------------------------------
-//	//DEFINE_MODULE 'RmsGenericNetLinxDeviceMonitor' rmsGeneric01(vdvRMS,dvMasterVeracomp)
-////----------------------------------------------------------------------------------------------------
-////																																								 rmsPanelMonitoring
-////----------------------------------------------------------------------------------------------------
-//	#IF_DEFINED HAS_KEYPAD
-//		DEFINE_MODULE 'RmsGenericNetLinxDeviceNameMonitor' rmsKeypad01(vdvRms,dvKeyPad1,rmsKeypad[1].name)
-//	#END_IF
-//
-//
-//	#IF_DEFINED HAS_PANEL
-//		DEFINE_MODULE 'RmsTouchPanelMonitor' rmsPanel01(vdvRMS,dvPanelCustomization,rmsPanel.name,rmsPanel.type)
-//	#END_IF
-////----------------------------------------------------------------------------------------------------
-////																																								avDevicesMonitoring
-////----------------------------------------------------------------------------------------------------
-//	#IF_DEFINED HAS_DX_TX
-//		DEFINE_MODULE 'RmsDistanceTransportTxMonitor' rmsDxTx01(vdvRms,vdvTransmitterTable1,dvTransmitterTable1,rmsDxTx[1].name)
-//		DEFINE_MODULE 'RmsDistanceTransportTxMonitor' rmsDxTx02(vdvRms,vdvTransmitterTable2,dvTransmitterTable2,rmsDxTx[2].name)
-//		DEFINE_MODULE 'RmsDistanceTransportTxMonitor' rmsDxTx03(vdvRms,vdvTransmitterTable3,dvTransmitterTable3,rmsDxTx[3].name)
-//		DEFINE_MODULE 'RmsDistanceTransportTxMonitor' rmsDxTx04(vdvRms,vdvTransmitterLifeSize,dvTransmitterLifeSize,rmsDxTx[4].name)
-//
-//		DEFINE_MODULE 'RmsDistanceTransportTxMonitor' rmsDxTx05(vdvRms,vdvTransmitterService,dvTransmitterService,rmsDxTx[5].name)
-//	#END_IF
-//
-//	#IF_DEFINED HAS_DX_RX
-//		DEFINE_MODULE 'RmsDistanceTransportRxMonitor' rmsDxRx01(vdvRms,vdvReceiverProjector,dvReceiverProjector,rmsDxRx[1].name)
-//	#END_IF
-////----------------------------------------------------------------------------------------------------
-////																																								 monitorsMonitoring
-////----------------------------------------------------------------------------------------------------
-//	#IF_DEFINED HAS_MONITOR
-//		//DEFINE_MODULE 'RmsNlMonitorMonitor'  rmsMonitor01(vdvRMS,vdvMonitor_A1,dvMonitor_A,rmsMonitor[1].name)
-//	#END_IF
-////----------------------------------------------------------------------------------------------------
-////																																							 projectorsMonitoring
-////----------------------------------------------------------------------------------------------------
-//	#IF_DEFINED HAS_PROJECTOR
-//		//DEFINE_MODULE 'RmsNlVideoProjectorMonitor' rmsVideoProjectorMon03(vdvRMS,vdvProjector_D,dvProjector_D,rmsProjector[3].name)
-//
-//		//#IF_DEFINED IS_PROJECTOR_DUET
-//			//DEFINE_MODULE 'RmsDuetVideoProjectorMonitor' rmsVideoProjectorMon01(vdvRMS,vdvProjector_B,dvProjector_B,rmsProjector[1].name)
-//			//DEFINE_MODULE 'RmsDuetVideoProjectorMonitor' rmsVideoProjectorMon02(vdvRMS,vdvProjector_C,dvProjector_C,rmsProjector[2].name)
-//		//#END_IF
-//
-//	#END_IF
-////
-////	#IF_DEFINED HAS_SCREEN
-////			//DEFINE_MODULE 'RmsScreenMonitor' rmsScreen01(vdvRMS,vdvScreen)
-////		#END_IF
-////
-////
-////		#IF_DEFINED HAS_LIFT
-////			//DEFINE_MODULE 'RmsLfitMonitor' rmsScreen01(vdvRMS,vdvLift)
-////		#END_IF
-////----------------------------------------------------------------------------------------------------
-////																																							 projectorsMonitoring
-////----------------------------------------------------------------------------------------------------
-//	#IF_DEFINED HAS_VIDEOCONFERENCE
-//		//DEFINE_MODULE 'RmsDuetVideoConferencerMonitor' rMSVideoConferenceMonitorMod01(vdvRMS,vdvPolycom_A,dvPolycom_A,rmsVideoconference[1].name)
-//	#END_IF
-////----------------------------------------------------------------------------------------------------
-////																																							     othersMonitoring
-////----------------------------------------------------------------------------------------------------
-////	#IF_DEFINED HAS_OTHERS
-////		//DEFINE_MODULE 'RmsNlLightMonitor' rmsLight01(vdvRMS,vdvLight,dvRelays)
-////	#END_IF
-////----------------------------------------------------------------------------------------------------
-////																																										 rmsSourceUsage
-////----------------------------------------------------------------------------------------------------
-//	#IF_DEFINED HAS_SOURCE_VGA1
-//		DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput01(vdvRMS,vdvVga1,rmsSourceUsage[1].name,rmsSourceUsage[1].description)
-//	#END_IF
-//
-//	#IF_DEFINED HAS_SOURCE_VGA2
-//		DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput02(vdvRMS,vdvVga2,rmsSourceUsage[2].name,rmsSourceUsage[2].description)
-//	#END_IF
-//
-//	#IF_DEFINED HAS_SOURCE_VGA3
-//		DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput03(vdvRMS,vdvVga3,rmsSourceUsage[3].name,rmsSourceUsage[3].description)
-//	#END_IF
-//
-//	#IF_DEFINED HAS_SOURCE_VGA4
-//		DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput04(vdvRMS,vdvVga4,rmsSourceUsage[4].name,rmsSourceUsage[4].description)
-//	#END_IF
-//
-//	#IF_DEFINED HAS_SOURCE_HDMI1
-//		DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput05(vdvRMS,vdvHdmi1,rmsSourceUsage[5].name,rmsSourceUsage[5].description)
-//	#END_IF
-//
-//	#IF_DEFINED HAS_SOURCE_HDMI2
-//		DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput06(vdvRMS,vdvHdmi2,rmsSourceUsage[6].name,rmsSourceUsage[6].description)
-//	#END_IF
-//
-//	#IF_DEFINED HAS_SOURCE_HDMI3
-//		DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput07(vdvRMS,vdvHdmi3,rmsSourceUsage[7].name,rmsSourceUsage[7].description)
-//	#END_IF
-//
-//	#IF_DEFINED HAS_SOURCE_HDMI4
-//		DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput08(vdvRMS,vdvHdmi4,rmsSourceUsage[8].name,rmsSourceUsage[8].description)
-//	#END_IF
-////----------------------------------------------------------------------------------------------------
-////  																																				 rmsNetlinxDeviceMonitors
-////----------------------------------------------------------------------------------------------------
-//#END_IF	//HAS_RMS
+//----------------------------------------------------------------------------------------------------
+//  																																				 rmsNetlinxDeviceMonitors
+//----------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
+//																																								 rmsPanelMonitoring
+//----------------------------------------------------------------------------------------------------
+//DEFINE_MODULE 'RmsGenericNetLinxDeviceNameMonitor' rmsKeypad01(vdvRms,dvKeyPad1,rmsKeypad[1].name)
+
+DEFINE_MODULE 'RmsTouchPanelMonitor' rmsPanel01(vdvRMS,dvPanelCustomization,rmsPanel.name,rmsPanel.type)
+//----------------------------------------------------------------------------------------------------
+//																																								 	 systemMonitoring
+//----------------------------------------------------------------------------------------------------
+//DEFINE_MODULE 'RmsSystemPowerMonitor' rmsSystemPower01(vdvRMS,dvMaster)
+DEFINE_MODULE 'RmsDvxSwitcherMonitor' rmsDvxSwticher01(vdvRMS)
+//----------------------------------------------------------------------------------------------------
+//																																					  nativeDevicesMonitoring
+//----------------------------------------------------------------------------------------------------
+//DEFINE_MODULE 'RmsGenericNetLinxDeviceMonitor' rmsGeneric01(vdvRMS,dvMasterVeracomp)
+//----------------------------------------------------------------------------------------------------
+//																																								avDevicesMonitoring
+//----------------------------------------------------------------------------------------------------
+DEFINE_MODULE 'RmsDistanceTransportTxMonitor' rmsDxTx01(vdvRms,vdvTransmitter,dvTransmitter,rmsDxTx.name)
+
+//DEFINE_MODULE 'RmsDistanceTransportRxMonitor' rmsDxRx01(vdvRms,vdvReceiverProjector,dvReceiverProjector,rmsDxRx[1].name)
+//----------------------------------------------------------------------------------------------------
+//																																								 monitorsMonitoring
+//----------------------------------------------------------------------------------------------------
+//DEFINE_MODULE 'RmsNlMonitorMonitor'  rmsMonitor01(vdvRMS,vdvMonitor_A1,dvMonitor_A,rmsMonitor[1].name)
+//----------------------------------------------------------------------------------------------------
+//																																							 projectorsMonitoring
+//----------------------------------------------------------------------------------------------------
+//DEFINE_MODULE 'RmsNlVideoProjectorMonitor' rmsVideoProjectorMon03(vdvRMS,vdvProjector_D,dvProjector_D,rmsProjector[3].name)
+//DEFINE_MODULE 'RmsDuetVideoProjectorMonitor' rmsVideoProjectorMon01(vdvRMS,vdvProjector_B,dvProjector_B,rmsProjector[1].name)
+
+//DEFINE_MODULE 'RmsScreenMonitor' rmsScreen01(vdvRMS,vdvScreen)
+//DEFINE_MODULE 'RmsLfitMonitor' rmsScreen01(vdvRMS,vdvLift)
+//----------------------------------------------------------------------------------------------------
+//																																				  videoconferenceMonitoring
+//----------------------------------------------------------------------------------------------------
+//DEFINE_MODULE 'RmsDuetVideoConferencerMonitor' rMSVideoConferenceMonitorMod01(vdvRMS,vdvPolycom_A,dvPolycom_A,rmsVideoconference[1].name)
+//----------------------------------------------------------------------------------------------------
+//																																							     othersMonitoring
+//----------------------------------------------------------------------------------------------------
+//DEFINE_MODULE 'RmsNlLightMonitor' rmsLight01(vdvRMS,vdvLight,dvRelays)
+//----------------------------------------------------------------------------------------------------
+//																																										 rmsSourceUsage
+//----------------------------------------------------------------------------------------------------
+//DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput01(vdvRMS,vdvVga1,rmsSourceUsage[1].name,rmsSourceUsage[1].description)
+//DEFINE_MODULE 'RmsVirtualDeviceMonitor' rmsVirtualInput02(vdvRMS,vdvVga2,rmsSourceUsage[2].name,rmsSourceUsage[2].description)
 (***********************************************************)
 (*                THE EVENTS GO BELOW                      *)
 (***********************************************************)
