@@ -1,7 +1,7 @@
 PROGRAM_NAME='mainline_comp_city_room'
 (***********************************************************)
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 05/30/2016  AT: 10:53:20        *)
+(*  FILE_LAST_MODIFIED_ON: 05/30/2016  AT: 16:55:12        *)
 (***********************************************************)
 (* System Type : NetLinx                                   *)
 (***********************************************************)
@@ -52,10 +52,25 @@ INTEGER swAudio_inputHdmi[] = {4,5}
 INTEGER swAudio_inputVideoConference[] = {2}
 INTEGER swAudio_outputRoom[] = {1}
 INTEGER swAudio_outputVideoConference[] = {3}
-__DEVDEFINITIONS rmsDxRx
+
+//panel Customization
+DEV dvPanelsCustomization[] = {dvPanelCustomization}
+CHAR customPanelName[] = '499'
+CHAR customPanelPhoneNumber[] = '33 467 55 67'
+INTEGER customPanelIsRadio = false
+INTEGER customPanelIsTelevision = false
+INTEGER customPanelIsBlind = false
+INTEGER customPanelIsLight = true
+INTEGER customPanelSleepTime = 0;		//value in mins, 0 means no sleep
+
+//inputDetection feature
+INTEGER presentationSources[][] = {{1 ,2 ,3 , 4, 11,12,13,14},	//btnNumbers
+																	 {1 ,2 ,3 , 4,	5, 6, 7, 8}}	//phisicalInputs
+DEV dvPanelsPresentation[] = {dvPanelPresentation}
+
 __DEVDEFINITIONS rmsPanel	//used for rmsMonitoring
 __DEVDEFINITIONS rmsDxTx
-
+__DEVDEFINITIONS rmsDxRx
 (***********************************************************)
 (*                INCLUDE DEFINITIONS GO BELOW             *)
 (***********************************************************)
@@ -124,7 +139,10 @@ DEFINE_MODULE 'switcherDvxAudio' audioSw01(dvDvx,vdvVideoSwitcher,
 //----------------------------------------------------------------------------------------------------
 //	 																																												uiModules
 //----------------------------------------------------------------------------------------------------
-//DEFINE_MODULE 'uiOrlenRoomPanelCustomization' uiOrlenPanelCustomization01
+DEFINE_MODULE 'uiOrlenRoomPanelCustomization' uiPanelCustomization01(dvPanelsCustomization,
+																																		 customPanelName,customPanelPhoneNumber,
+																																		 customPanelIsRadio,customPanelIsTelevision,customPanelIsBlind,customPanelIsLight,
+																																		 customPanelSleepTime)
 
 //DEFINE_MODULE 'uiOrlenPlockBiuroTechniki115PanelMenu' uiOrlenPanelMenu01
 //DEFINE_MODULE 'uiOrlenPlockBiuroTechniki115PanelPresentation' uiOrlenPanelPresentation01
@@ -132,7 +150,7 @@ DEFINE_MODULE 'switcherDvxAudio' audioSw01(dvDvx,vdvVideoSwitcher,
 //DEFINE_MODULE 'uiOrlenRoomPanelAudio' uiOrlenPanelAudio01
 //DEFINE_MODULE 'uiOrlenPlockBiuroTechniki115PanelLight' uiOrlenPanelLight01
 
-
+DEFINE_MODULE 'featureInputDetection_DVX' featureInputDetection01(dvPanelsPresentation,presentationSources)
 (***********************************************************)
 (*               LATCHING DEFINITIONS GO BELOW             *)
 (***********************************************************)
