@@ -125,7 +125,7 @@
 <SysID>0</SysID>
 <TransTCPIP>10.20.26.10:1319:1:Orlen_sala436:administrator:h24Df84dce</TransTCPIP>
 <TransSerial>COM1,38400,8,None,1,None</TransSerial>
-<TransTCPIPEx>192.168.5.132|1319|1|4200 [AMXM9C0C69]|YWRtaW5pc3RyYXRvcg|cGFzc3dvcmQ</TransTCPIPEx>
+<TransTCPIPEx>192.168.5.110|1319|1|4200 [AMXM9C0C69]|YWRtaW5pc3RyYXRvcg|cGFzc3dvcmQ</TransTCPIPEx>
 <TransSerialEx>COM1|38400|8|None|1|None|YWRtaW5pc3RyYXRvcg|aDI0RGY4NGRjZQ</TransSerialEx>
 <TransUSBEx>|||||</TransUSBEx>
 <TransVNMEx>10.0.0.1|1|&lt;Default&gt;</TransVNMEx>
@@ -140,8 +140,16 @@
 <FilePathName>..\..\..\..\amx_folder\amx_works\## my includes ##\chapi.axi</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Module"><Identifier>AMX_DxRx_Comm_nl2_0_0</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\netlinx\amx\dxLink\AMX_DxRx_Comm_nl2_0_0.axs</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="Module"><Identifier>AMX_DxTx_Comm_nl2_0_0</Identifier>
 <FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\netlinx\amx\dxLink\AMX_DxTx_Comm_nl2_0_0.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsDistanceTransportRxMonitor</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsDistanceTransportRxMonitor\RmsDistanceTransportRxMonitor.axs</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Module"><Identifier>RmsDistanceTransportTxMonitor</Identifier>
@@ -179,16 +187,6 @@
 <File CompileType="Netlinx" Type="Module"><Identifier>commRms</Identifier>
 <FilePathName>monitors\commRms.axs</FilePathName>
 <Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Other"><Identifier>panelCustomization</Identifier>
-<FilePathName>others\panelCustomization.amx</FilePathName>
-<Comments></Comments>
-<MasterDirectory>\</MasterDirectory>
-</File>
-<File CompileType="Netlinx" Type="Other"><Identifier>rmsConfiguration</Identifier>
-<FilePathName>others\rmsConfiguration.amx</FilePathName>
-<Comments></Comments>
-<MasterDirectory>\</MasterDirectory>
 </File>
 </System>
 </Project>

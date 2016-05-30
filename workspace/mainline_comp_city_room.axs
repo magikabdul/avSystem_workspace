@@ -1,7 +1,7 @@
 PROGRAM_NAME='mainline_comp_city_room'
 (***********************************************************)
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 05/25/2016  AT: 13:38:25        *)
+(*  FILE_LAST_MODIFIED_ON: 05/30/2016  AT: 10:53:20        *)
 (***********************************************************)
 (* System Type : NetLinx                                   *)
 (***********************************************************)
@@ -52,7 +52,7 @@ INTEGER swAudio_inputHdmi[] = {4,5}
 INTEGER swAudio_inputVideoConference[] = {2}
 INTEGER swAudio_outputRoom[] = {1}
 INTEGER swAudio_outputVideoConference[] = {3}
-
+__DEVDEFINITIONS rmsDxRx
 __DEVDEFINITIONS rmsPanel	//used for rmsMonitoring
 __DEVDEFINITIONS rmsDxTx
 
@@ -100,17 +100,17 @@ DEFINE_MODULE 'commRms' rmsComm01(vdvRms,rmsConfigIpAddress,rmsConfigLocationNam
 //----------------------------------------------------------------------------------------------------
 //																																											switerModules
 //----------------------------------------------------------------------------------------------------
-DEFINE_MODULE 'AMX_DxTx_Comm_nl2_0_0' dxRx01(vdvTransmitter,dvTransmitter)
-//DEFINE_MODULE 'AMX_DxRx_Comm_nl2_0_0' dxRx02(vdvReceiver2,dvReceiver2)
+DEFINE_MODULE 'AMX_DxTx_Comm_nl2_0_0' dxTx01(vdvTransmitter,dvTransmitter)
+DEFINE_MODULE 'AMX_DxRx_Comm_nl2_0_0' dxRx01(vdvReceiver,dvReceiver)
 
-DEFINE_MODULE 'switcherDvxVideo' OrlenVideoSw01(dvDvx,vdvVideoSwitcher,
-																								swVideo_noOfTxDx, swVideo_noOfRxDx,
-																								swVideo_inputVga, swVideo_inputHdmi, swVideo_inputVideoConference,
-																								swVideo_outputMonitor, swVideo_outputProjector, swVideo_outputContent)
+DEFINE_MODULE 'switcherDvxVideo' videoSw01(dvDvx,vdvVideoSwitcher,
+																					 swVideo_noOfTxDx, swVideo_noOfRxDx,
+																					 swVideo_inputVga, swVideo_inputHdmi, swVideo_inputVideoConference,
+																					 swVideo_outputMonitor, swVideo_outputProjector, swVideo_outputContent)
 
-DEFINE_MODULE 'switcherDvxAudio' OrlenAudioSw01(dvDvx,vdvVideoSwitcher,
-																								swAudio_inputVga,swAudio_inputHdmi,swAudio_inputVideoConference,
-																								swAudio_outputRoom,swAudio_outputVideoConference)
+DEFINE_MODULE 'switcherDvxAudio' audioSw01(dvDvx,vdvVideoSwitcher,
+																					 swAudio_inputVga,swAudio_inputHdmi,swAudio_inputVideoConference,
+																					 swAudio_outputRoom,swAudio_outputVideoConference)
 //----------------------------------------------------------------------------------------------------
 // 																																												commModules
 //----------------------------------------------------------------------------------------------------
@@ -154,12 +154,19 @@ DEFINE_MUTUALLY_EXCLUSIVE
 (***********************************************************)
 DEFINE_START
 
+//----------------------------------------------------------------------keypads
 //rmsKeypad.name = ''
-
+//----------------------------------------------------------------------touchPanels
 rmsPanel.name = 'iPad'
 rmsPanel.type = 'TPC'
-
+//----------------------------------------------------------------------dxLinkDevices
 rmsDxTx.name = 'MyTransmitter'
+
+rmsDxRx.name = 'MyReceiver'
+//----------------------------------------------------------------------monitors
+
+//----------------------------------------------------------------------projectors
+
 
 //
 //	#IF_DEFINED HAS_PROJECTOR
@@ -225,8 +232,7 @@ DEFINE_MODULE 'RmsDvxSwitcherMonitor' rmsDvxSwticher01(vdvRMS)
 //																																								avDevicesMonitoring
 //----------------------------------------------------------------------------------------------------
 DEFINE_MODULE 'RmsDistanceTransportTxMonitor' rmsDxTx01(vdvRms,vdvTransmitter,dvTransmitter,rmsDxTx.name)
-
-//DEFINE_MODULE 'RmsDistanceTransportRxMonitor' rmsDxRx01(vdvRms,vdvReceiverProjector,dvReceiverProjector,rmsDxRx[1].name)
+DEFINE_MODULE 'RmsDistanceTransportRxMonitor' rmsDxRx01(vdvRms,vdvReceiver,dvReceiver,rmsDxRx.name)
 //----------------------------------------------------------------------------------------------------
 //																																								 monitorsMonitoring
 //----------------------------------------------------------------------------------------------------

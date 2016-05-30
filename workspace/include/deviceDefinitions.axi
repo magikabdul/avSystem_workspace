@@ -1,6 +1,6 @@
 PROGRAM_NAME='deviceDefinitions'
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 05/25/2016  AT: 13:03:28        *)
+(*  FILE_LAST_MODIFIED_ON: 05/30/2016  AT: 12:01:34        *)
 (***********************************************************)
 
 DEFINE_DEVICE
@@ -20,7 +20,7 @@ dvPanelCd																= 10001: 8:0
 dvPanelLight														= 10001:11:0
 dvPanelJalousie													= 10001:12:0
 dvPanelAutomations											= 10001:13:0
-dvPanelWeather													= 10004:14:1
+dvPanelWeather													= 10004:14:0
 //------------------------------------- = ----------------------------------------------------master
 dvMaster        												=     0: 1:0
 //------------------------------------- = ----------------------------------------------------ipDevices
@@ -47,9 +47,9 @@ dvDvx				 														=  5002: 1:0
 
 dvAmplifier  														=  5002: 1:0
 //------------------------------------- = ----------------------------------------------------dxlink Tx(800x) and Rx(700x)	use port 2 to aviod confilicts in RMS
-dvTransmitter														=  8001: 0:0
+dvTransmitter														=  8001: 6:0
 
-dvReceiver      												=  7001: 0:0
+dvReceiver      												=  7001: 6:0
 //------------------------------------- = ----------------------------------------------------virtualSwitchers(3300x)
 vdvVideoSwitcher												= 33001: 1:0
 vdvAudioSwitcher												= 33002: 1:0
@@ -68,7 +68,7 @@ vdvMonitorRight													= 33102: 1:0
 
 vdvProjectorNl													= 33111: 1:0
 //------------------------------------- = ----------------------------------------------------virtualNetlinxAvDevices(3320x - Rx, 3330x - Tx)
-vdvReceiver1														= 33201: 1:0
+vdvReceiver															= 33201: 1:0
 
 vdvTransmitter													= 33301: 1:0
 //------------------------------------- = ----------------------------------------------------virtualDuetDevices
