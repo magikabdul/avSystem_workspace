@@ -136,6 +136,10 @@
 <UserName></UserName>
 <Password></Password>
 <Comments></Comments>
+<File CompileType="Netlinx" Type="Module"><Identifier>featureInputDetection_DVX</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\## my features ##\inputDetection\featureInputDetection_DVX.axs</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="Include"><Identifier>chapi</Identifier>
 <FilePathName>..\..\..\..\amx_folder\amx_works\## my includes ##\chapi.axi</FilePathName>
 <Comments></Comments>
@@ -162,6 +166,10 @@
 </File>
 <File CompileType="Netlinx" Type="Module"><Identifier>RmsTouchPanelMonitor</Identifier>
 <FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsTouchPanelMonitor\RmsTouchPanelMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>uiOrlenRoomPanelCustomization</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\firmy\orlen\### v4 ###\### base ###\masterNxRms4.5.3\modulesUi\uiOrlenRoomPanelCustomization.axs</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Include"><Identifier>deviceDefinitions</Identifier>
