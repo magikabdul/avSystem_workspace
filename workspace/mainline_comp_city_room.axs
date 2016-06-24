@@ -1,7 +1,7 @@
 PROGRAM_NAME='mainline_comp_city_room'
 (***********************************************************)
 (***********************************************************)
-(*  FILE_LAST_MODIFIED_ON: 05/30/2016  AT: 16:55:12        *)
+(*  FILE_LAST_MODIFIED_ON: 06/23/2016  AT: 17:25:20        *)
 (***********************************************************)
 (* System Type : NetLinx                                   *)
 (***********************************************************)
@@ -27,15 +27,15 @@ DEFINE_CONSTANT
 (*              DATA TYPE DEFINITIONS GO BELOW             *)
 (***********************************************************)
 DEFINE_TYPE
-
+FILE_OPEN
 (***********************************************************)
 (*               VARIABLE DEFINITIONS GO BELOW             *)
 (***********************************************************)
 DEFINE_VARIABLE
 
 //rms information for location registration
-CHAR rmsConfigIpAddress[] 		= '192.168.5.177'
-CHAR rmsConfigLocationName[] 	= 'Lab-Kris'
+CHAR rmsConfigIpAddress[] 		= '172.16.10.233'		//'192.168.5.177'
+CHAR rmsConfigLocationName[] 	= 'Lab-DVX'
 
 //videoSwitcher data (even if particular input/output deosn't exists output number have to a value '0')
 INTEGER swVideo_noOfTxDx = 0
@@ -57,11 +57,11 @@ INTEGER swAudio_outputVideoConference[] = {3}
 DEV dvPanelsCustomization[] = {dvPanelCustomization}
 CHAR customPanelName[] = '499'
 CHAR customPanelPhoneNumber[] = '33 467 55 67'
-INTEGER customPanelIsRadio = false
-INTEGER customPanelIsTelevision = false
-INTEGER customPanelIsBlind = false
-INTEGER customPanelIsLight = true
-INTEGER customPanelSleepTime = 0;		//value in mins, 0 means no sleep
+INTEGER customPanelHasRadio = false
+INTEGER customPanelHasTelevision = false
+INTEGER customPanelHasBlind = false
+INTEGER customPanelHasLight = true
+INTEGER customPanelSleepTime = 1;		//value in mins, 0 means no sleep
 
 //inputDetection feature
 INTEGER presentationSources[][] = {{1 ,2 ,3 , 4, 11,12,13,14},	//btnNumbers
@@ -69,6 +69,7 @@ INTEGER presentationSources[][] = {{1 ,2 ,3 , 4, 11,12,13,14},	//btnNumbers
 DEV dvPanelsPresentation[] = {dvPanelPresentation}
 
 __DEVDEFINITIONS rmsPanel	//used for rmsMonitoring
+__DEVDEFINITIONS rmsKeypad
 __DEVDEFINITIONS rmsDxTx
 __DEVDEFINITIONS rmsDxRx
 (***********************************************************)
@@ -141,12 +142,12 @@ DEFINE_MODULE 'switcherDvxAudio' audioSw01(dvDvx,vdvVideoSwitcher,
 //----------------------------------------------------------------------------------------------------
 DEFINE_MODULE 'uiOrlenRoomPanelCustomization' uiPanelCustomization01(dvPanelsCustomization,
 																																		 customPanelName,customPanelPhoneNumber,
-																																		 customPanelIsRadio,customPanelIsTelevision,customPanelIsBlind,customPanelIsLight,
+																																		 customPanelHasRadio,customPanelHasTelevision,customPanelHasBlind,customPanelHasLight,
 																																		 customPanelSleepTime)
 
 //DEFINE_MODULE 'uiOrlenPlockBiuroTechniki115PanelMenu' uiOrlenPanelMenu01
 //DEFINE_MODULE 'uiOrlenPlockBiuroTechniki115PanelPresentation' uiOrlenPanelPresentation01
-//DEFINE_MODULE 'uiOrlenPlockBiuroTechniki115PanelPolycom' uiOrlenPanelPolycom01
+//DEFINE_MODULE 'uiOrlenPanelPolycom' uiOrlenPanelPolycom01
 //DEFINE_MODULE 'uiOrlenRoomPanelAudio' uiOrlenPanelAudio01
 //DEFINE_MODULE 'uiOrlenPlockBiuroTechniki115PanelLight' uiOrlenPanelLight01
 
@@ -173,7 +174,7 @@ DEFINE_MUTUALLY_EXCLUSIVE
 DEFINE_START
 
 //----------------------------------------------------------------------keypads
-//rmsKeypad.name = ''
+rmsKeypad.name = 'Room Keypad MET-6W'
 //----------------------------------------------------------------------touchPanels
 rmsPanel.name = 'iPad'
 rmsPanel.type = 'TPC'
@@ -231,10 +232,12 @@ rmsDxRx.name = 'MyReceiver'
 //----------------------------------------------------------------------------------------------------
 //  																																				 rmsNetlinxDeviceMonitors
 //----------------------------------------------------------------------------------------------------
+DEFINE_MODULE 'RmsControlSystemMonitor' rmsControlSystem01(vdvRms,dvMaster)
+DEFINE_MODULE 'RmsGenericNetLinxDeviceMonitor' rmsController01(vdvRms,dvController)
 //----------------------------------------------------------------------------------------------------
 //																																								 rmsPanelMonitoring
 //----------------------------------------------------------------------------------------------------
-//DEFINE_MODULE 'RmsGenericNetLinxDeviceNameMonitor' rmsKeypad01(vdvRms,dvKeyPad1,rmsKeypad[1].name)
+DEFINE_MODULE 'RmsGenericNetLinxDeviceCustomMonitor' rmsKeypad01(vdvRms,dvKeypad,rmsKeypad.name)
 
 DEFINE_MODULE 'RmsTouchPanelMonitor' rmsPanel01(vdvRMS,dvPanelCustomization,rmsPanel.name,rmsPanel.type)
 //----------------------------------------------------------------------------------------------------
