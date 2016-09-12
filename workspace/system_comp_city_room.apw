@@ -168,6 +168,10 @@
 <FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsDvxSwitcherMonitor\RmsDvxSwitcherMonitor.axs</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsGenericNetLinxDeviceCustomMonitor</Identifier>
+<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsGenericNetLinxDeviceMonitor\RmsGenericNetLinxDeviceCustomMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="Module"><Identifier>RmsGenericNetLinxDeviceMonitor</Identifier>
 <FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsGenericNetLinxDeviceMonitor\RmsGenericNetLinxDeviceMonitor.axs</FilePathName>
 <Comments></Comments>
