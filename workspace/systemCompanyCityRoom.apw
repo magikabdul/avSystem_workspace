@@ -125,7 +125,7 @@
 <SysID>0</SysID>
 <TransTCPIP>10.20.26.10:1319:1:Orlen_sala436:administrator:h24Df84dce</TransTCPIP>
 <TransSerial>COM1,38400,8,None,1,None</TransSerial>
-<TransTCPIPEx>172.16.10.235|1319|1|NX_VisionCube|YWRtaW5pc3RyYXRvcg|cGFzc3dvcmQ</TransTCPIPEx>
+<TransTCPIPEx>172.16.10.230|1319|1|NX_VisionCube|YWRtaW5pc3RyYXRvcg|</TransTCPIPEx>
 <TransSerialEx>COM1|38400|8|None|1|None|YWRtaW5pc3RyYXRvcg|aDI0RGY4NGRjZQ</TransSerialEx>
 <TransUSBEx>|||||</TransUSBEx>
 <TransVNMEx>10.0.0.1|1|&lt;Default&gt;</TransVNMEx>
@@ -136,76 +136,16 @@
 <UserName></UserName>
 <Password></Password>
 <Comments></Comments>
-<File CompileType="Netlinx" Type="Module"><Identifier>featureInputDetection_DVX</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my features ##\inputDetection\featureInputDetection_DVX.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Include"><Identifier>chapi</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my includes ##\chapi.axi</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>AMX_DxRx_Comm_nl2_0_0</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\netlinx\amx\dxLink\AMX_DxRx_Comm_nl2_0_0.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>AMX_DxTx_Comm_nl2_0_0</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\netlinx\amx\dxLink\AMX_DxTx_Comm_nl2_0_0.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>RmsControlSystemMonitor</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsControlSystemMonitor\RmsControlSystemMonitor.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>RmsDistanceTransportRxMonitor</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsDistanceTransportRxMonitor\RmsDistanceTransportRxMonitor.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>RmsDistanceTransportTxMonitor</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsDistanceTransportTxMonitor\RmsDistanceTransportTxMonitor.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>RmsDvxSwitcherMonitor</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsDvxSwitcherMonitor\RmsDvxSwitcherMonitor.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>RmsGenericNetLinxDeviceCustomMonitor</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsGenericNetLinxDeviceMonitor\RmsGenericNetLinxDeviceCustomMonitor.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>RmsGenericNetLinxDeviceMonitor</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsGenericNetLinxDeviceMonitor\RmsGenericNetLinxDeviceMonitor.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>RmsTouchPanelMonitor</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\## my modules ##\rms\RmsTouchPanelMonitor\RmsTouchPanelMonitor.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>uiOrlenRoomPanelCustomization</Identifier>
-<FilePathName>..\..\..\..\amx_folder\amx_works\firmy\orlen\### v4 ###\### base ###\masterNxRms4.5.3\modulesUi\uiOrlenRoomPanelCustomization.axs</FilePathName>
-<Comments></Comments>
-</File>
 <File CompileType="Netlinx" Type="Include"><Identifier>deviceDefinitions</Identifier>
 <FilePathName>include\deviceDefinitions.axi</FilePathName>
 <Comments></Comments>
 </File>
-<File CompileType="Netlinx" Type="MasterSrc"><Identifier>mainline_comp_city_room</Identifier>
-<FilePathName>mainline_comp_city_room.axs</FilePathName>
+<File CompileType="Netlinx" Type="Include"><Identifier>dvxConfiguration</Identifier>
+<FilePathName>include\dvxConfiguration.axi</FilePathName>
 <Comments></Comments>
 </File>
-<File CompileType="Netlinx" Type="DUET"><Identifier>RmsNetLinxAdapter_dr4_0_0</Identifier>
-<FilePathName>moduleDuet\RmsNetLinxAdapter_dr4_0_0.jar</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>switcherDvxAudio</Identifier>
-<FilePathName>moduleSwitcher\switcherDvxAudio.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>switcherDvxVideo</Identifier>
-<FilePathName>moduleSwitcher\switcherDvxVideo.axs</FilePathName>
-<Comments></Comments>
-</File>
-<File CompileType="Netlinx" Type="Module"><Identifier>commRms</Identifier>
-<FilePathName>monitors\commRms.axs</FilePathName>
+<File CompileType="Netlinx" Type="MasterSrc"><Identifier>mainlineCompanyCityRoom</Identifier>
+<FilePathName>mainlineCompanyCityRoom.axs</FilePathName>
 <Comments></Comments>
 </File>
 </System>
